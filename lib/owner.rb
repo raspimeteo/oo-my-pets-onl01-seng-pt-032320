@@ -1,5 +1,3 @@
-require 'pry'
-
 class Owner
   attr_reader :name
   attr_accessor :cats, :dogs
@@ -71,7 +69,6 @@ class Owner
     end
 
     def list_pets
-      # binding.pry
       return "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
     end
   end
