@@ -10,7 +10,6 @@ class Dog
     @owner = owner
     @mood = "nervous"
     save
-    #binding.pry
   end
 
   def save
@@ -20,7 +19,5 @@ class Dog
   def self.all
     @@all
   end
-
-
-
+  
 end
