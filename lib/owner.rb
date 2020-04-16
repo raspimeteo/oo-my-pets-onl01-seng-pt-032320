@@ -18,7 +18,6 @@ class Owner
   end
 
   def say_species
-    ## binding.pry
     return "I am a #{@species}."
   end
 
@@ -35,14 +34,45 @@ class Owner
   end
 
   def cats
-    Cat.all.select do |cat_object|
-      cat_object.owner.name == self.name
-    end
+    Cat.all.select {|cat_object| cat_object.owner == self}
+  
   end
 
   def dogs
-    Dog.all.select do |dog_object|
-      dog_object.owner.name == self.name
+    Dog.all.select {|dog_object| dog_object.owner == self}
+  end
+
+  def buy_cat(name)
+    # binding.pry
+    Cat.new(name,self)
+  end
+
+  def buy_dog(name)
+    # binding.pry
+    Dog.new(name,self)
+  end
+
+  def feed_cats
+    Cat.all.each {|cat| cat.mood = 'happy'}
+  end
+
+  def walk_dogs
+    Dog.all.each {|dog| dog.mood = 'happy'}
+  end
+
+  def sell_pets
+    Cat.all.each do |cat| 
+       cat.mood = 'nervous'
+       cat.owner = nil
+    end
+    Dog.all.each do |dog| 
+      dog.mood = 'nervous'
+      dog.owner = nil
+    end
+
+    def list_pets
+      # binding.pry
+      return "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
     end
   end
 
