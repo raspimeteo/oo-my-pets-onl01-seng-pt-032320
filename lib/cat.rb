@@ -1,4 +1,3 @@
-# require 'pry'
 class Cat
   attr_reader :name
   attr_accessor :owner, :mood
@@ -10,7 +9,6 @@ class Cat
     @owner = owner
     @mood = "nervous"
     save
-    #binding.pry
   end
 
   def save
@@ -20,10 +18,5 @@ class Cat
   def self.all
     @@all
   end
-
-  # def owner= (new_owner)
-  #   self.owner = new_owner
-  #   binding.pry
-  # end
 
 end
